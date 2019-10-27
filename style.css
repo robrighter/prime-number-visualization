@@ -18,7 +18,7 @@ body {
 	float: left;
 }
 
-#header #currentnumber {
+#header #currentnumber, #header #controls {
 	float: left;
 	padding: 10px;
 	text-align: left;
@@ -27,6 +27,10 @@ body {
 	margin: 10px;
 	width: 200px;
 	margin-top: 20px;
+}
+
+#header #controls {
+	color: #ccc;
 }
 
 #header #currentnumber .number {

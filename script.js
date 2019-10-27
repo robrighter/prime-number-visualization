@@ -9,7 +9,7 @@ function build_grid($, primes){
 	
 	for(var i=0;i<rows;i++){
 		primes.forEach(function(item){
-			$('#grid').append('<div class="item"></div>'); 
+			$('#grid').append('<div class="item">0</div>'); 
 		});	
 	}
 
@@ -53,6 +53,10 @@ function prime_factorization(number, result) {
   return (x === number) ? result : prime_factorization((number / x), result);
 };
 
+function increment_usage(box){
+	box.text(parseInt(box.text())+1);
+}
+
 function set_prime_factors_as_active(primefactors){
 	var i = 0;
 	var lastvalue = -1;
@@ -66,7 +70,7 @@ function set_prime_factors_as_active(primefactors){
 		}
 		if(primefactors[i] <= primes[primes.length-1]){
 			//only try to render the box if the number is in the grid
-			get_prime_box(primefactors[i], depth).addClass('active');
+			increment_usage(get_prime_box(primefactors[i], depth).addClass('active'));
 		}
 		lastvalue = primefactors[i];
 	}
@@ -91,7 +95,7 @@ function render_and_increment(){
 	currentNumber++;
 
 	//set a timer to run the next count
-	setTimeout(render_and_increment, 1000);
+	setTimeout(render_and_increment, parseInt($('#controls .speed').val()));
 }
 
 $( document ).ready(function() {
