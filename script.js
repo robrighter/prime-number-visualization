@@ -91,7 +91,7 @@ function render_and_increment(){
 	currentNumber++;
 
 	//set a timer to run the next count
-	setTimeout(render_and_increment, 1);
+	setTimeout(render_and_increment, 1000);
 }
 
 $( document ).ready(function() {
