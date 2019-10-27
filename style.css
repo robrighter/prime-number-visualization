@@ -1,0 +1,76 @@
+body {
+  background-color: #42433E;
+  font-family: "Arial Narrow", Arial, sans-serif;
+}
+
+#header {
+	background-color: #282923;
+	border-radius: 10px;
+	margin-bottom: 10px;
+	overflow: hidden;
+}
+
+#header h1 {
+	color: #62CADF;
+	font-size: 30px;
+	padding: 5px;
+	display: block;
+	float: left;
+}
+
+#header #currentnumber {
+	float: left;
+	padding: 10px;
+	text-align: left;
+	background-color: #42433E;
+	border-radius: 10px;
+	margin: 10px;
+	width: 200px;
+	margin-top: 20px;
+}
+
+#header #currentnumber .number {
+	color: white;
+	font-weight: bold;
+}
+
+#header #currentnumber .current {
+	color: #ccc;
+	font-size: 20px;
+}
+
+#header #currentnumber .primefactors {
+	color: #A2DD2B;
+	font-size: 12px;
+}
+
+#grid {
+	width: 500px;
+	background-color: #ccc;
+	display: block;
+	overflow: hidden;
+	
+	font-size: 10px;
+	color: #282923;
+
+}	
+
+#grid .item {
+	width: 18px;
+	height: 18px;
+	border: 1px solid #555;
+	float: left;
+	text-align: center;
+}
+
+#grid .item.head {
+	background-color: #858680;
+}
+
+#grid .item.used {
+	background-color: #8C6BCA;
+}
+
+#grid .item.active {
+	background-color: #A2DD2B;
+}	
