@@ -48,6 +48,13 @@ body {
 	font-size: 12px;
 }
 
+#header #currentnumber .hprime,
+#header #currentnumber .nfactors,
+#header #currentnumber .nprime {
+	color: #ccc;
+	font-size: 12px;	
+}
+
 #grid {
 	width: 500px;
 	background-color: #ccc;

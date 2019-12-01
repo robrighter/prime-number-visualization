@@ -1,6 +1,9 @@
 var primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199];
 var rows = 20;
 var currentNumber = 2;
+var highestPrime = 2;
+var longestNumberOfFactors = 1;
+var allPrimes = {1:1};
 
 function build_grid($, primes){
 	primes.forEach(function(item){
@@ -76,6 +79,21 @@ function set_prime_factors_as_active(primefactors){
 	}
 }
 
+function setHighestPrime(factors){
+	if(highestPrime < factors[factors.length-1]){
+		highestPrime = factors[factors.length-1];
+		allPrimes[highestPrime] = highestPrime;
+	}
+	return highestPrime;
+}
+
+function setLongestNumberOfFactors(factors){
+	if(longestNumberOfFactors < factors.length){
+		longestNumberOfFactors = factors.length;
+	}
+	return longestNumberOfFactors;
+}
+
 function render_and_increment(){
 	//render current number in counter
 	$('#currentnumber .number').text(currentNumber);
@@ -86,6 +104,10 @@ function render_and_increment(){
 
 	//set all active to used
 	$('#grid').find('.active').addClass('used').removeClass('active');
+
+	$('#currentnumber .hp').text(setHighestPrime(primefactors));
+	$('#currentnumber .nf').text(setLongestNumberOfFactors(primefactors));
+	$('#currentnumber .np').text(Object.keys(allPrimes).length);
 
 	
 	//set all prime factors as active
