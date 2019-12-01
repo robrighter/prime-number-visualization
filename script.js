@@ -4,6 +4,7 @@ var currentNumber = 2;
 var highestPrime = 2;
 var longestNumberOfFactors = 1;
 var allPrimes = {1:1};
+var primesPerFactorCount = [1];
 
 function build_grid($, primes){
 	primes.forEach(function(item){
@@ -90,6 +91,8 @@ function setHighestPrime(factors){
 function setLongestNumberOfFactors(factors){
 	if(longestNumberOfFactors < factors.length){
 		longestNumberOfFactors = factors.length;
+		primesPerFactorCount[primesPerFactorCount.length] = Object.keys(allPrimes).length - primesPerFactorCount[primesPerFactorCount.length-1];
+		console.log(JSON.stringify(primesPerFactorCount));
 	}
 	return longestNumberOfFactors;
 }
