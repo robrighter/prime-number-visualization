@@ -88,11 +88,20 @@ function setHighestPrime(factors){
 	return highestPrime;
 }
 
+function updatePlot(primesPerFactorCount){
+	var line1 = {x: [], y: primesPerFactorCount, type: 'scatter' };
+	for (var i = 1; i < primesPerFactorCount.length; i++) {
+		line1.x.push(i);
+	}
+	Plotly.newPlot('plotDiv', [line1]);
+}
+
 function setLongestNumberOfFactors(factors){
 	if(longestNumberOfFactors < factors.length){
 		longestNumberOfFactors = factors.length;
 		primesPerFactorCount[primesPerFactorCount.length] = Object.keys(allPrimes).length - primesPerFactorCount[primesPerFactorCount.length-1];
 		console.log(JSON.stringify(primesPerFactorCount));
+		updatePlot(primesPerFactorCount);
 	}
 	return longestNumberOfFactors;
 }
